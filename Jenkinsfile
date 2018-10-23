@@ -27,8 +27,8 @@ stage('Yum: Updates') {
      }
     }
   }
-/* post {
-        always {
+post {
+/*        always {
             echo 'One way or another, I have finished'
             deleteDir() /* clean up our workspace */
         }
@@ -44,6 +44,6 @@ stage('Yum: Updates') {
         changed {
             echo 'Things were different before...'
         }
-  }
   */
+    }
 }
