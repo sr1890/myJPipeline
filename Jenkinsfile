@@ -44,5 +44,6 @@ stage('Yum: Updates') {
         changed {
             echo 'Things were different before...'
         }
-   } */
+  }
+  */
 }
