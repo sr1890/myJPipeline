@@ -14,17 +14,31 @@ steps {
       git config --global push.default simple;\
       git clone $BUILD_SCRIPTS_GIT repo/$BUILD_SCRIPTS"
       sh "chmod -R +x $WORKSPACE/repo/$BUILD_SCRIPTS"
-      sh "pwd"
-      sh "ls"
       }
     }
 stage('Yum: Updates') {
       steps {
-      sh "pwd"
-      sh "ls"
       sh "sudo chmod +x $WORKSPACE/repo/$BUILD_SCRIPTS/scripts/update.sh"
       sh "sudo $WORKSPACE/repo/$BUILD_SCRIPTS/scripts/update.sh"
      }
     }
   }
+  post {
+        always {
+              echo 'One way or another, I have finished'
+              deleteDir() /* clean up our workspace */
+          }
+          success {
+              echo 'I succeeeded!'
+          }
+          unstable {
+              echo 'I am unstable :/'
+          }
+          failure {
+              echo 'I failed :('
+          }
+          changed {
+              echo 'Things were different before...'
+          }
+      }
 }
