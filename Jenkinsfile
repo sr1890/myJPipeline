@@ -23,8 +23,4 @@ sh "sudo $WORKSPACE/repo/$BUILD_SCRIPTS/scripts/update.sh"
 }
 }
 }
-post {
-always {
-cleanWs()
-}
 }
