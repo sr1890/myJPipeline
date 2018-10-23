@@ -20,7 +20,25 @@ stage('Yum: Updates') {
       steps {
       sh "sudo chmod +x $WORKSPACE/repo/$BUILD_SCRIPTS/scripts/update.sh"
       sh "sudo $WORKSPACE/repo/$BUILD_SCRIPTS/scripts/update.sh"
-            }
-          }
+     }
+    }
+  }
+post {
+        always {
+            echo 'One way or another, I have finished'
+            deleteDir() /* clean up our workspace */
         }
+        success {
+            echo 'I succeeeded!'
+        }
+        unstable {
+            echo 'I am unstable :/'
+        }
+        failure {
+            echo 'I failed :('
+        }
+        changed {
+            echo 'Things were different before...'
+        }
+    }
 }
