@@ -18,6 +18,8 @@ steps {
     }
 stage('Yum: Updates') {
       steps {
+      sh "pwd"
+      sh "ls"
       sh "sudo chmod +x $WORKSPACE/repo/$BUILD_SCRIPTS/scripts/update.sh"
       sh "sudo $WORKSPACE/repo/$BUILD_SCRIPTS/scripts/update.sh"
      }
