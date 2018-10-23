@@ -1,8 +1,8 @@
 pipeline {
 environment {
-BUILD_SCRIPTS_GIT="https://github.com/sr1890/java-tomcat-maven-example.git"
-BUILD_SCRIPTS='mypipeline'
-BUILD_HOME='/var/lib/jenkins/workspace'
+    BUILD_SCRIPTS_GIT="https://github.com/sr1890/java-tomcat-maven-example.git"
+    BUILD_SCRIPTS='mypipeline'
+    BUILD_HOME='/var/lib/jenkins/workspace'
 }
 agent any
 stages {
@@ -26,4 +26,5 @@ sh "sudo $WORKSPACE/repo/$BUILD_SCRIPTS/scripts/update.sh"
 post {
 always {
 cleanWs()
+}
 }
